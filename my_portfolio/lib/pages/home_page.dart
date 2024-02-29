@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/constants/nav_icons.dart';
+import 'package:my_portfolio/widgets/header_desktop.dart';
+import 'package:my_portfolio/widgets/header_mobile.dart';
+import 'package:my_portfolio/widgets/site_logo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,21 +20,10 @@ class _HomePageState extends State<HomePage> {
         body: ListView(
           children: [
             // MAIN widget
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              child: Row(
-                children: [
-                  Text('Prinse_Emm'),
-                  Spacer(),
-                  for (int i = 0; i < 5; i++)
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('button'),
-                    ),
-                ],
-              ),
-              // color: Colors.blueGrey,
+            //HeaderDesktop(),
+            HeaderMobile(
+              onLogoTap: () {},
+              onMenuTap: () {},
             ),
             // Skills widget
             Container(
