@@ -11,7 +11,7 @@ class SiteLogo extends StatelessWidget {
       onTap: () {
         onTap;
       },
-      child: Text(
+      child: const Text(
         'Prinse_Emm',
         style: TextStyle(
           fontSize: 20,

@@ -10,13 +10,13 @@ class HeaderDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         vertical: 10,
         horizontal: 20,
       ),
       width: double.maxFinite,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient:const  LinearGradient(
           colors: [Colors.transparent, CustomColor.bgLight1],
         ),
         borderRadius: BorderRadius.circular(100),
@@ -26,7 +26,7 @@ class HeaderDesktop extends StatelessWidget {
           SiteLogo(onTap: (){
             
           },),
-          Spacer(),
+          const Spacer(),
           for (int i = 0; i < navTitles.length; i++)
             Padding(
               padding: const EdgeInsets.only(right: 20),
@@ -34,7 +34,7 @@ class HeaderDesktop extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   navTitles[i],
-                  style: TextStyle(
+                  style:const  TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: CustomColor.whitePrimary,
