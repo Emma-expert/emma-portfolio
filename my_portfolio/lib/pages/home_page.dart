@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/constants/nav_icons.dart';
 import 'package:my_portfolio/constants/size.dart';
+import 'package:my_portfolio/constants/skill_items.dart';
 import 'package:my_portfolio/widgets/drawer-mobile.dart';
 import 'package:my_portfolio/widgets/header_desktop.dart';
 import 'package:my_portfolio/widgets/header_mobile.dart';
@@ -51,9 +53,56 @@ class _HomePageState extends State<HomePage> {
 
             // Skills widget
             Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
+              padding: EdgeInsets.fromLTRB(25, 20, 25, 60),
+              width: screenWidth,
+              color: CustomColor.bgLight1,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  //title
+                  Text(
+                    "What I can do!",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: CustomColor.whitePrimary,
+                    ),
+                  ),
+                  //platforms & Skills
+                  Row(
+                    children: [
+                      //platforms
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 450,
+                        ),
+                        child: Wrap(
+                          children: [
+                            for (int i = 0; i < platformItems.length; i++)
+                              Container(
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  color: CustomColor.bgLight2,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: ListTile(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                    vertical: 10,
+                                  ),
+                                  leading: Image.asset(platformItems[i]["img"],),
+                                  title: Text(platformItems[i]["title"]),
+                                ),
+                              )
+                          ],
+                        ),
+                      )
+
+                      //skills
+                    ],
+                  )
+                ],
+              ),
             ),
             // Projects widget
             Container(
