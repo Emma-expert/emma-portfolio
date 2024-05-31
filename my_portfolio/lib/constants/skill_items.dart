@@ -1,14 +1,14 @@
 const List<Map> platformItems = [
   {
-    "img": "assets/android_png.png",
+    "img": "assets/android.png",
     "title": "Android Dev",
   },
   {
-    "img": "assets/desktop.png",
+    "img": "assets/computer.png",
     "title": "Desktop Dev",
   },
   {
-    "img": "assets/ios_png.png",
+    "img": "assets/apple.png",
     "title": "IOS Dev",
   },
   {"img": "assets/web.png", "title": "Web Dev"}

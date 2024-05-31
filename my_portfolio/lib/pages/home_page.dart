@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/constants/nav_icons.dart';
@@ -11,6 +12,7 @@ import 'package:my_portfolio/widgets/header_mobile.dart';
 import 'package:my_portfolio/widgets/main_desktop.dart';
 import 'package:my_portfolio/widgets/main_mobile.dart';
 import 'package:my_portfolio/widgets/site_logo.dart';
+import 'package:my_portfolio/widgets/skills_destop.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -53,14 +55,14 @@ class _HomePageState extends State<HomePage> {
 
             // Skills widget
             Container(
-              padding: EdgeInsets.fromLTRB(25, 20, 25, 60),
+              padding:const EdgeInsets.fromLTRB(25, 20, 25, 60),
               width: screenWidth,
               color: CustomColor.bgLight1,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   //title
-                  Text(
+                  const Text(
                     "What I can do!",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -68,33 +70,26 @@ class _HomePageState extends State<HomePage> {
                       color: CustomColor.whitePrimary,
                     ),
                   ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   //platforms & Skills
-                  Row(
+                  //SkillDesktop()
+                  Column(
                     children: [
                       //platforms
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxWidth: 450,
+                      for (int i=0; i < platformItems.length; i++ )
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 5),
+                        width: double.maxFinite,
+                        decoration:  BoxDecoration(
+                          color: CustomColor.bgLight2,
+                          borderRadius: BorderRadius.circular(5),
                         ),
-                        child: Wrap(
-                          children: [
-                            for (int i = 0; i < platformItems.length; i++)
-                              Container(
-                                width: 200,
-                                decoration: BoxDecoration(
-                                  color: CustomColor.bgLight2,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: ListTile(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                    vertical: 10,
-                                  ),
-                                  leading: Image.asset(platformItems[i]["img"],),
-                                  title: Text(platformItems[i]["title"]),
-                                ),
-                              )
-                          ],
+                        child: ListTile(
+                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          leading: Image.asset(platformItems[i]["img"], width: 26,),
+                          title: Text(platformItems[i]["title"]),
                         ),
                       )
 
